@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentMigrator" Version="3.2.9" />
+    <PackageReference Include="FluentMigrator.Runner" Version="3.2.9" />
+    <PackageReference Include="FluentMigrator.Runner.Postgres" Version="3.2.9" />
+    <PackageReference Include="linq2db" Version="3.1.6" />
+    <PackageReference Include="linq2db.PostgreSQL" Version="3.1.6" />
+    <PackageReference Include="Npgsql" Version="5.0.1.1" />
+  </ItemGroup>
+
+
+</Project>
