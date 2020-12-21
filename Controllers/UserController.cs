@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using FProject.Domain.Entities;
 using FProject.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -30,7 +31,7 @@ namespace FProject.Controllers
             }
         }
         [HttpPost]
-        public IActionResult CreateUser([FromBody] User user)
+        public async Task<IActionResult> CreateUser([FromBody] User user)
         {
             try
             {
@@ -39,9 +40,9 @@ namespace FProject.Controllers
                     return BadRequest("Username is required");
                 }
 
-                if(!(_userRepository.ExistsUsername(user.Username)))
+                if(!( await _userRepository.ExistsUsername(user.Username)))
                 {
-                    _userRepository.CreateUser(user);
+                    await _userRepository.CreateUser(user);
                     return Ok("User created!!");
                 }
                 else
@@ -55,11 +56,11 @@ namespace FProject.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetUser([FromRoute] int Id)
+        public async Task<IActionResult> GetUser([FromRoute] int Id)
         {
             try
             {
-                var user = _userRepository.Get(Id);
+                var user = await _userRepository.Get(Id);
                 return Ok(user);
             }
             catch (System.Exception ex)
@@ -69,11 +70,11 @@ namespace FProject.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete([FromRoute] int id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             try
             {
-                _userRepository.DeleteUser(id);
+                await _userRepository.DeleteUser(id);
                 return Ok("Usuario deleted");
             }
             catch (System.Exception ex)
@@ -83,11 +84,11 @@ namespace FProject.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update([FromRoute] int id, User model)
+        public async Task<IActionResult> Update([FromRoute] int id, User model)
         {
             try
             {
-                _userRepository.UpdateUser(id, model);
+                await _userRepository.UpdateUser(id, model);
                 return Ok("Usuario atualizado");
             }
             catch (System.Exception ex)

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using FProject.Domain.Entities;
 using FProject.Domain.Interfaces;
 using LinqToDB;
@@ -10,7 +11,7 @@ namespace FProject.Data.Repository
     {
         public UserRepository(DataConnection db) : base(db) { }
 
-        public User CreateUser(User model)
+        public async Task<User> CreateUser(User model)
         {
             var id = Db.User.InsertWithInt32Identity(() => new User
             {
@@ -19,45 +20,39 @@ namespace FProject.Data.Repository
                 Password = model.Password,
             });
 
-            return Get(id);
+            return await Get(id);
         }
-        public User Get(int id)
+        public async Task<User> Get(int id)
         {
             var dataTable = GetQuery(Db);
 
-            return GetOne(x => x.Id == id);
+            return await GetOne(x => x.Id == id);
         }
 
-        public void UpdateUser(int id, User model)
+        public async Task UpdateUser(int id, User model)
         {
             var dataTable = GetQuery(Db);
 
-            dataTable
+            await dataTable
                 .Where(x => x.Id == id)
                 .Set(t => t.Username, model.Username)
                 .Set(t => t.Email, model.Email)
-                .Update();
+                .UpdateAsync();
         }
 
-        public void DeleteUser(int id)
+        public async Task DeleteUser(int id)
         {
-            GetQuery(Db)
+            await GetQuery(Db)
                 .Where(x => x.Id == id)
-                .Delete();
+                .DeleteAsync();
         }
 
         public List<User> SelectAll()
         {
             return ReadAll();
         }
-
-        public bool Exists(int id)
-        {
-            return Db.User.Any(x => x.Id == id);
-        }
-        public bool ExistsUsername(string username)
-        {
-            return Db.User.Any(x => x.Username == username);
-        }
+        public async Task<bool> Exists(int id) => await Db.User.AnyAsync(x => x.Id == id);
+        public async Task<bool> ExistsUsername(string username) => await Db.User
+                                                                .AnyAsync(x => x.Username == username);
     }
 }

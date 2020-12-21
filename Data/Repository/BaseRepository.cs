@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using FProject.Domain.Interfaces;
 using LinqToDB;
 
@@ -14,36 +15,26 @@ namespace FProject.Data.Repository
         {
             Db = db;
         }
-        public T Create(T model)
-        {
-            return Db.InsertWithIdentity(model) as T;
-        }
+        public async Task<T> Create(T model) => await Db.InsertWithInt32IdentityAsync(model) as T;
 
+        public async Task Update(T model) => await Db.UpdateAsync(model);
+
+        public async Task Delete(T model) => await Db.DeleteAsync(model);
+        
         public List<T> ReadAll()
         {
             var table = GetQuery(Db);
             return table.ToList();
         }
-
-        public void Update(T model)
-        {
-            Db.Update(model);
-        }
-
-        public void Delete(T model)
-        {
-            Db.Delete(model);
-        }
-
+        
         protected ITable<T> GetQuery ( DataConnection db )
         {
             return db.GetTable<T>();
         }
 
-        protected T GetOne(Expression<Func<T, bool>> predicate)
+        protected async Task<T> GetOne(Expression<Func<T, bool>> predicate)
         {
-            return GetQuery(Db).FirstOrDefault(predicate);
+            return await GetQuery(Db).FirstOrDefaultAsync(predicate);
         }
-
     }
 }
