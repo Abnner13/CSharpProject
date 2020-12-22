@@ -2,7 +2,9 @@ using System.Threading.Tasks;
 using FProject.Domain.Entities;
 using FProject.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
+using BC = BCrypt.Net.BCrypt;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace FProject.Controllers
 {
@@ -18,12 +20,19 @@ namespace FProject.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public ActionResult<object> GetAll()
         {
             try
             {
-                var usersList =  _userRepository.SelectAll();
-                return Ok(usersList);
+                var userList = _userRepository.SelectAll()
+                    .Select(x => new
+                    {
+                        Id = x.Id,
+                        Username = x.Username,
+                        Email = x.Email
+                    });
+
+                return Ok(userList);
             }
             catch (System.Exception ex)
             {
@@ -42,7 +51,9 @@ namespace FProject.Controllers
 
                 if(!( await _userRepository.ExistsUsername(user.Username)))
                 {
-                    await _userRepository.CreateUser(user);
+                    string salt = BC.GenerateSalt();
+                    string hashPassword = BC.HashPassword(user.Password, salt);
+                    await _userRepository.CreateUser(user, salt, hashPassword);
                     return Ok("User created!!");
                 }
                 else

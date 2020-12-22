@@ -49,3 +49,4 @@
 /home/invent/learnC#/projects/FProject/obj/Debug/netcoreapp3.1/FProject.dll
 /home/invent/learnC#/projects/FProject/obj/Debug/netcoreapp3.1/FProject.pdb
 /home/invent/learnC#/projects/FProject/obj/Debug/netcoreapp3.1/FProject.genruntimeconfig.cache
+/home/invent/learnC#/projects/FProject/bin/Debug/netcoreapp3.1/BCrypt.Net-Next.dll

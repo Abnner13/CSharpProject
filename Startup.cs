@@ -91,7 +91,7 @@ namespace FProject
                 .ConfigureRunner(rb => rb
                     .AddPostgres()
                     .WithGlobalConnectionString(connectionString)
-                    .ScanIn(typeof(_202012161644_CreateUser).Assembly)
+                    .ScanIn(typeof(_202012221606_CreateUser).Assembly)
                     .For
                     .Migrations())
                 .AddLogging(lb => lb.AddFluentMigratorConsole())

@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "FProject/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.0",
           "FluentMigrator": "3.2.9",
           "FluentMigrator.Runner": "3.2.9",
           "FluentMigrator.Runner.Postgres": "3.2.9",
@@ -317,6 +318,17 @@
         },
         "compile": {
           "FProject.dll": {}
+        }
+      },
+      "BCrypt.Net-Next/4.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/BCrypt.Net-Next.dll": {}
         }
       },
       "FluentMigrator/3.2.9": {
@@ -2487,6 +2499,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BCrypt.Net-Next/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1rjyVK+/YJnCElALjVNt/aUPIIRoFocFZzblsiFo2giA3WVYExk/E5UT6i4RqEHwIwEwoQHt02I1llaEIQ59eQ==",
+      "path": "bcrypt.net-next/4.0.0",
+      "hashPath": "bcrypt.net-next.4.0.0.nupkg.sha512"
     },
     "FluentMigrator/3.2.9": {
       "type": "package",

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cH41lbBPiv7NwA1rUzYLLoPeIgaMDmCKLIndq259LnPIXiTJBHN7TbkzjwdbNaFZkwMZqQ1fDoKfuRU5Gsgubg==",
+  "dgSpecHash": "CIHKtzm6lxUhHOUDkJ2kbE92ugiImmfxWqf2aKzzXhypHiDt2hQZMiil25jzNnOA1ue+IgbHKO5kG34shnN2Cg==",
   "success": true,
   "projectFilePath": "/home/invent/learnC#/projects/FProject/FProject.csproj",
   "expectedPackageFiles": [
+    "/home/invent/.nuget/packages/bcrypt.net-next/4.0.0/bcrypt.net-next.4.0.0.nupkg.sha512",
     "/home/invent/.nuget/packages/fluentmigrator/3.2.9/fluentmigrator.3.2.9.nupkg.sha512",
     "/home/invent/.nuget/packages/fluentmigrator.abstractions/3.2.9/fluentmigrator.abstractions.3.2.9.nupkg.sha512",
     "/home/invent/.nuget/packages/fluentmigrator.extensions.oracle/3.2.9/fluentmigrator.extensions.oracle.3.2.9.nupkg.sha512",
