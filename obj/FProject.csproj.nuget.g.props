@@ -140,6 +140,7 @@
     <Import Project="$(NuGetPackageRoot)linq2db.postgresql/3.1.6/build/linq2db.PostgreSQL.props" Condition="Exists('$(NuGetPackageRoot)linq2db.postgresql/3.1.6/build/linq2db.PostgreSQL.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">/home/invent/.nuget/packages/newtonsoft.json/10.0.1</PkgNewtonsoft_Json>
     <Pkglinq2db_PostgreSQL Condition=" '$(Pkglinq2db_PostgreSQL)' == '' ">/home/invent/.nuget/packages/linq2db.postgresql/3.1.6</Pkglinq2db_PostgreSQL>
   </PropertyGroup>
 </Project>

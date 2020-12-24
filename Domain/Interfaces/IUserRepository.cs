@@ -13,5 +13,6 @@ namespace FProject.Domain.Interfaces
         Task DeleteUser( int id );
         Task<bool> Exists(int id);
         Task<bool> ExistsUsername(string username);
+        Task<bool> Authenticate(User model);
     }
 }

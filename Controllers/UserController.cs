@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using BC = BCrypt.Net.BCrypt;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FProject.Controllers
 {
@@ -67,12 +68,22 @@ namespace FProject.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetUser([FromRoute] int Id)
         {
             try
             {
                 var user = await _userRepository.Get(Id);
-                return Ok(user);
+                return Ok(new
+                {
+                    id = user.Id,
+                    username = user.Username,
+                    Email = user.Email
+                });
+            }
+            catch (System.UnauthorizedAccessException ex)
+            {
+                return StatusCode(StatusCodes.Status401Unauthorized, ex.Message);
             }
             catch (System.Exception ex)
             {
@@ -95,6 +106,7 @@ namespace FProject.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> Update([FromRoute] int id, User model)
         {
             try

@@ -27,7 +27,7 @@ namespace FProject.Data.Repository
 
         public async Task<bool> Authenticate(User model)
         {
-            var account = await GetOne(x => x.Id.Equals(model.Id));
+            var account = await GetOne(x => x.Username.Equals(model.Username));
 
             return !(account == null || !BC.Verify(model.Password, account.Password));
         }

@@ -50,3 +50,11 @@
 /home/invent/learnC#/projects/FProject/obj/Debug/netcoreapp3.1/FProject.pdb
 /home/invent/learnC#/projects/FProject/obj/Debug/netcoreapp3.1/FProject.genruntimeconfig.cache
 /home/invent/learnC#/projects/FProject/bin/Debug/netcoreapp3.1/BCrypt.Net-Next.dll
+/home/invent/learnC#/projects/FProject/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/invent/learnC#/projects/FProject/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/invent/learnC#/projects/FProject/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+/home/invent/learnC#/projects/FProject/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+/home/invent/learnC#/projects/FProject/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/invent/learnC#/projects/FProject/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+/home/invent/learnC#/projects/FProject/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/home/invent/learnC#/projects/FProject/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
